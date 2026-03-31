@@ -1,0 +1,29 @@
+// Project 38 - Controlling the Motor
+const int motorPin = 5;    // The physical pin (constant)
+const int touchSensor = 6; // The sensor pin
+int currentSpeed = 0;      // Variable to store the motor speed
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(touchSensor, INPUT);
+  pinMode(motorPin, OUTPUT);
+}
+void loop() {
+  int touchState = digitalRead(touchSensor);
+  if (touchState == HIGH) {
+    if (currentSpeed < 255) {
+      currentSpeed++;
+      delay(10);
+    }
+  } 
+  else {
+    if (currentSpeed > 0) {
+      currentSpeed--;
+      delay(10);
+    }
+  }
+  analogWrite(motorPin, currentSpeed);
+  if (currentSpeed > 0 && currentSpeed < 255) {
+    Serial.println(currentSpeed);
+  }
+}
