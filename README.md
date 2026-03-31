@@ -1,1 +1,2 @@
 # Project-38-Modified
+This project uses an Arduino UNO and a open-smart touch sensor 2.0 to control the speed of a motor. As the touch sensor is being pressed, the motor speed will increase (and serial print the motor speed's value) until it reaches 255 (the max speed), and then it will remain steady at that speed until the program reads a touch sensor value of LOW. If the touch sensor reads LOW it will slowly decrease the motor speed until it reaches 0. 
